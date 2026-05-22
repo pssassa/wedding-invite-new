@@ -423,7 +423,7 @@ function EventDetailsSection() {
 
 // ── Timeline ─────────────────────────────────────────────────────────────────
 const timelineItems = [
-  { time: '15:00', event: 'Церемония', description: 'Выещдная регистрация на заливе', icon: Heart, accent: '#E6C2C2' },
+  { time: '15:00', event: 'Церемония', description: 'Выездная регистрация на заливе', icon: Heart, accent: '#E6C2C2' },
   { time: '16:00', event: 'Кейтеринг', description: 'Насладитесь фирменными коктейлями \'и закусками на террасе.', icon: Wine, accent: '#D4B8D1' },
   { time: '17:30', event: 'Торжественный ужин', description: 'Ужин за праздничным столом, с конкурсами, тостами и смехом ', icon: Utensils, accent: '#C8D8C4' },
   { time: '20:00', event: 'Развлечения', description: 'Веселье и танцы от заката до рассвета', icon: Music, accent: '#E8D5C4' },
@@ -503,10 +503,43 @@ function RSVPFormSection() {
     dietaryNotes: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      // 👇 ВСТАВЬ СЮДА СВОЙ URL ИЗ GOOGLE APPS SCRIPT
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzaGVi1O4vXwHlqCdmplhkEN4vIorRIM_A0qdTCQHiYZQcPfxofasF2J81RcKyLNkWLCQ/exec';
+      
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Обязательно для Google Apps Script
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      // При mode: 'no-cors' ответ не читаем, но данные уходят
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        guestCount: '1',
+        attendance: 'yes',
+        mealPreference: 'chicken',
+        dietaryNotes: '',
+      });
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('Произошла ошибка при отправке. Попробуйте ещё раз.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -614,7 +647,7 @@ function RSVPFormSection() {
                         return <option key={n} value={n}>Только я</option>;
                       }
 
-                      const guests = Number(n.split('+')[1]); // 1, 2, 3...
+                      const guests = Number(n.split('+')[1]);
                       const word = guests === 1 ? 'гость' : guests <= 4 ? 'гостя' : 'гостей';
 
                       return (
@@ -676,15 +709,34 @@ function RSVPFormSection() {
                 />
               </div>
 
+              {/* Сообщение об ошибке */}
+              {submitError && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center">
+                  {submitError}
+                </div>
+              )}
+
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-4 font-['Inter'] font-medium text-base rounded-xl text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full py-4 font-['Inter'] font-medium text-base rounded-xl text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 ${
+                  isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
                 style={{ background: 'linear-gradient(135deg, #C8D8C4 0%, #D4B8D1 100%)' }}
               >
-                <MessageSquareShare className="w-4 h-4" />
-                Отправить форму
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Отправка...
+                  </>
+                ) : (
+                  <>
+                    <MessageSquareShare className="w-4 h-4" />
+                    Отправить форму
+                  </>
+                )}
               </motion.button>
             </form>
           )}
