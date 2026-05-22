@@ -245,14 +245,14 @@ function OurStorySection() {
           >
             <div className="rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.09)]translate-y-8">
               <img
-                src="./photo/photo13.jpg"
+                src="/wedding-invite-new/photo/photo13.jpg"
                 alt="Couple Portrait 1"
                 className="w-full h-72 md:h-[420px] object-cover object-[50%_70%] block rounded-2xl"
               />
             </div>
             <div className="overflow-hidden rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.09)] md:mt-8">
               <img
-                src="./photo/photo4.jpg"
+                src="/wedding-invite-new/photo/photo4.jpg"
                 alt="Couple Portrait 2"
                 className="w-full h-72 md:h-[420px] object-cover object-[50%_70%] block rounded-2xl"
               />
@@ -696,13 +696,13 @@ function RSVPFormSection() {
 
 // ── Photo Gallery ─────────────────────────────────────────────────────────────
 const galleryPhotos = [
-  { src: './photo/photo8.jpg', span: 'col-span-1 row-span-2', alt: 'Wedding flowers' },
-  { src: './photo/photo2.jpg', alt: 'Venue decoration' },
-  { src: './photo/photo14.jpg', span: 'col-span-1 row-span-1', alt: 'Couple portrait' },
-  { src: './photo/photo18.jpg', span: 'col-span-1 row-span-2', alt: 'Floral arrangement' },
-  { src: './photo/photo7.jpg', span: 'col-span-1 row-span-1', alt: 'Romantic photo' },
-  { src: './photo/photo9.jpg', span: 'col-span-1 row-span-1', alt: 'Venue floral decor' },
-  { src: './photo/photo6.jpg', span: 'col-span-1 row-span-1', alt: 'Venue floral decor' },
+  { src: '/wedding-invite-new/photo/photo8.jpg', span: 'col-span-1 row-span-2', alt: 'Wedding flowers' },
+  { src: '/wedding-invite-new/photo/photo2.jpg', alt: 'Venue decoration' },
+  { src: '/wedding-invite-new/photo/photo14.jpg', span: 'col-span-1 row-span-1', alt: 'Couple portrait' },
+  { src: '/wedding-invite-new/photo/photo18.jpg', span: 'col-span-1 row-span-2', alt: 'Floral arrangement' },
+  { src: '/wedding-invite-new/photo/photo7.jpg', span: 'col-span-1 row-span-1', alt: 'Romantic photo' },
+  { src: '/wedding-invite-new/photo/photo9.jpg', span: 'col-span-1 row-span-1', alt: 'Venue floral decor' },
+  { src: '/wedding-invite-new/photo/photo6.jpg', span: 'col-span-1 row-span-1', alt: 'Venue floral decor' },
 ];
 
 function PhotoGallerySection() {
