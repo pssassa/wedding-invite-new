@@ -1,11 +1,15 @@
 {
   "name": "@figma/my-make-file",
+  "homepage": "https://pssassa.github.io/wedding-invite-new",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "vite build",
-    "dev": "vite"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -70,8 +74,9 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "4.7.0",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "4.1.12",
-    "vite": "6.3.5"
+    "vite": "^6.4.2"
   },
   "peerDependencies": {
     "react": "18.3.1",
