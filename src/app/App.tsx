@@ -325,67 +325,7 @@ function EventDetailsSection() {
           <div>
             <h3 className="font-['Playfair_Display'] text-2xl text-[#4A4A4A] mb-1">Dress Code</h3>
             <p className="font-['Inter'] text-[#6B5D52]">
-              Dress Code - теплые, летние цвета. Главное, чтобы все были счастливы и всем было комфортно. Но если вы сомневаетесь, небольшая подсказка ниже ↓
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Color Palette Guide - Full Width */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="bg-white rounded-2xl p-6 md:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.07)] mb-8"
-        >
-          <div className="text-center mb-6">
-            <h3 className="font-['Playfair_Display'] text-2xl text-[#4A4A4A] mb-2">
-              Цветовая палитра
-            </h3>
-            <p className="font-['Inter'] text-[#6B5D52] text-sm">
-              Выберите любой из этих оттенков — они идеально дополнят атмосферу праздника
-            </p>
-          </div>
-
-          {/* Grid с крупными цветовыми карточками */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { name: 'Шалфей', color: '#C8D8C4', hex: 'C8D8C4' },
-              { name: 'Лаванда', color: '#D4B8D1', hex: 'D4B8D1' },
-              { name: 'Пыльная роза', color: '#E6C2C2', hex: 'E6C2C2' },
-              { name: 'Крем', color: '#E8D5C4', hex: 'E8D5C4' },
-              { name: 'Беж', color: '#F5F0EB', hex: 'F5F0EB' },
-              { name: 'Золото', color: '#c4a882', hex: 'c4a882' },
-            ].map((swatch) => (
-              <div
-                key={swatch.name}
-                className="group relative overflow-hidden rounded-xl cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
-                style={{ 
-                  backgroundColor: swatch.color,
-                  minHeight: '120px',
-                  border: '3px solid rgba(255,255,255,0.9)'
-                }}
-              >
-                {/* Название цвета поверх плашки */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-3">
-                  <span className="font-['Playfair_Display'] text-lg font-medium text-[#4A4A4A] drop-shadow-sm">
-                    {swatch.name}
-                  </span>
-                  <span className="font-['Inter'] text-xs text-[#6B5D52]/80 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    #{swatch.hex.toUpperCase()}
-                  </span>
-                </div>
-
-                {/* Лёгкий оверлей при наведении */}
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-            ))}
-          </div>
-
-          {/* Подсказка внизу */}
-          <div className="mt-6 text-center">
-            <p className="font-['Inter'] text-sm text-[#8B7355]/80">
-              💡 <span className="italic">Совет:</span> можно сочетать несколько оттенков или добавить акценты золотом
+              Dress Code - те цвета, которые Вам нравятся и подходят, но оставьте белое и черное жениху и невесте!
             </p>
           </div>
         </motion.div>
@@ -424,7 +364,7 @@ function EventDetailsSection() {
 // ── Timeline ─────────────────────────────────────────────────────────────────
 const timelineItems = [
   { time: '15:00', event: 'Церемония', description: 'Выездная регистрация на заливе', icon: Heart, accent: '#E6C2C2' },
-  { time: '16:00', event: 'Кейтеринг', description: 'Насладитесь фирменными коктейлями \'и закусками на террасе.', icon: Wine, accent: '#D4B8D1' },
+  { time: '16:00', event: 'Кейтеринг', description: 'Напитки и вкусные закуски у воды', icon: Wine, accent: '#D4B8D1' },
   { time: '17:30', event: 'Торжественный ужин', description: 'Ужин за праздничным столом, с конкурсами, тостами и смехом ', icon: Utensils, accent: '#C8D8C4' },
   { time: '20:00', event: 'Развлечения', description: 'Веселье и танцы от заката до рассвета', icon: Music, accent: '#E8D5C4' },
 ];
@@ -556,7 +496,7 @@ function RSVPFormSection() {
         >
           <h2 className="font-['Playfair_Display'] text-5xl md:text-6xl text-[#4A4A4A] mb-2">Форма обратной связи</h2>
           <HeartDivider color="#C8D8C4" />
-          <p className="font-['Inter'] text-[#8B7355] mt-2">Просьба заполнить до 15 июня 2026</p>
+          <p className="font-['Inter'] text-[#8B7355] mt-2">Просьба заполнить до 25 июня 2026</p>
         </motion.div>
 
         <motion.div
@@ -578,7 +518,7 @@ function RSVPFormSection() {
               </div>
               <h3 className="font-['Playfair_Display'] text-3xl text-[#4A4A4A] mb-3">Спасибо!</h3>
               <p className="font-['Inter'] text-[#6B5D52]">
-                Мы получили Ваш ответ и ждем вас на мероприятии! 
+                Мы получили Ваш ответ! 
               </p>
             </motion.div>
           ) : (
@@ -917,14 +857,8 @@ function FooterSection() {
           <div className="bg-white rounded-2xl p-6 mb-10 shadow-[0_4px_20px_rgba(0,0,0,0.07)] max-w-lg mx-auto">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Gift className="w-5 h-5 text-[#D4B8D1]" />
-              <h4 className="font-['Playfair_Display'] text-xl text-[#4A4A4A]">тут был список подарков</h4>
+              <h4 className="font-['Playfair_Display'] text-xl text-[#4A4A4A]">Будем рады денежным подаркам</h4>
             </div>
-            <p className="font-['Inter'] text-sm text-[#6B5D52] leading-relaxed">
-              я бы чем нибудь заменил этот кусок{' '}
-              <a href="#" className="text-[#C8D8C4] underline underline-offset-2">ссылка 1</a>{' '}
-              вставка между ссылками{' '}
-              <a href="#" className="text-[#D4B8D1] underline underline-offset-2">ссылка 2</a>.
-            </p>
           </div>
 
           <p className="font-['Inter'] text-xs text-[#8B7355] tracking-widest uppercase">
