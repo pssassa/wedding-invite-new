@@ -541,7 +541,7 @@ function RSVPFormSection() {
               {/* Attendance */}
               <div>
                 <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-3 block">
-                  Вы будете присутствовать?*
+                  Вы будете присутствовать? *
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   {[
@@ -576,12 +576,12 @@ function RSVPFormSection() {
                   {/* Meal Preference */}
                   <div>
                     <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-3 block">
-                      Предпочтения в еде *
+                      Основное блюдо *
                     </label>
                     <div className="grid grid-cols-2 gap-2">
                       {[
                         { value: 'chicken', label: 'Курица' },
-                        { value: 'beef', label: 'Говядина' },
+                        { value: 'beef/pork', label: 'Говядина/Свинина' },
                         { value: 'fish', label: 'Рыба' },
                         { value: 'vegetarian', label: 'Вегетерианец' },
                       ].map((meal) => (
@@ -682,12 +682,10 @@ function PhotoGallerySection() {
           className="text-center mb-16"
         >
           <h2 className="font-['Playfair_Display'] text-5xl md:text-6xl text-[#4A4A4A] mb-2">
-            Наши моменты
+            Наши фото
           </h2>
           <HeartDivider color="#E6C2C2" />
-          <p className="font-['Inter'] text-[#8B7355] text-sm tracking-widest uppercase mt-2">
-            Воспоминания, которые нам дороги
-          </p>
+          <p className="font-['Inter'] text-[#8B7355] text-sm tracking-widest uppercase mt-2"></p>
         </motion.div>
 
         {/* Desktop masonry-style grid */}
