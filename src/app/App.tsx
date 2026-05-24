@@ -572,6 +572,7 @@ function RSVPFormSection() {
 
               {formData.attendance === 'yes' && (
                 <>
+
                   {/* Meal Preference */}
                   <div>
                     <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-3 block">
@@ -605,10 +606,8 @@ function RSVPFormSection() {
                       ))}
                     </div>
                   </div>
-                </>
-              )}
 
-              {/* Dietary Notes */}
+                  {/* Dietary Notes */}
               <div>
                 <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-2 block">
                   Диетические ограничения или примечания
@@ -621,6 +620,8 @@ function RSVPFormSection() {
                   placeholder="Если у вас есть аллергии, особые диетические предпочтения или вы просто хотите нам что то сообщить!"
                 />
               </div>
+                </>
+              )}
 
               {/* Сообщение об ошибке */}
               {submitError && (
