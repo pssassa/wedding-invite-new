@@ -572,33 +572,6 @@ function RSVPFormSection() {
 
               {formData.attendance === 'yes' && (
                 <>
-                  {/* Guest Count */}
-                  <div>
-                    <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-2 block">
-                      Количество людей с Вами? *
-                    </label>
-                    <select
-                      value={formData.guestCount}
-                      onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-[#E8D5C4] focus:border-[#C8D8C4] focus:outline-none transition-colors font-['Inter'] bg-[#fdfaf8]"
-                    >
-                    {['1', '1+1', '1+2', '1+3'].map((n) => {
-                      if (n === '1') {
-                        return <option key={n} value={n}>Только я</option>;
-                      }
-
-                      const guests = Number(n.split('+')[1]);
-                      const word = guests === 1 ? 'гость' : guests <= 4 ? 'гостя' : 'гостей';
-
-                      return (
-                        <option key={n} value={n}>
-                          Я и {guests} {word}
-                        </option>
-                      );
-                    })}
-                    </select>
-                  </div>
-
                   {/* Meal Preference */}
                   <div>
                     <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-3 block">
