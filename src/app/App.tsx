@@ -440,8 +440,8 @@ function RSVPFormSection() {
     guestCount: '1',
     attendance: 'yes',
     mealPreference: 'chicken',
-    dietaryNotes: '',
     alcoholPreferences: [] as string[],
+    dietaryNotes: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -454,7 +454,7 @@ function RSVPFormSection() {
     
     try {
       // 👇 ВСТАВЬ СЮДА СВОЙ URL ИЗ GOOGLE APPS SCRIPT
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzsTB6S3uXVG-wVwoHTYEYPEtANwGrXg6SEHAF_oCtWGX8FYkUQUJ9hhWuPgtlmfVXoAg/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiz-UYHoxDZh6XBIGEFWAkFc6Eavnx4pUYZVHAqYbZK93gE9SJLHyqdWQvJspMjwK07g/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
