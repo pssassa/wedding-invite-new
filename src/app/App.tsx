@@ -440,6 +440,7 @@ function RSVPFormSection() {
     guestCount: '1',
     attendance: 'yes',
     mealPreference: 'chicken',
+    alcoholPreferences: [] as string[],
     dietaryNotes: '',
   });
   const [submitted, setSubmitted] = useState(false);
@@ -453,7 +454,7 @@ function RSVPFormSection() {
     
     try {
       // 👇 ВСТАВЬ СЮДА СВОЙ URL ИЗ GOOGLE APPS SCRIPT
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzaGVi1O4vXwHlqCdmplhkEN4vIorRIM_A0qdTCQHiYZQcPfxofasF2J81RcKyLNkWLCQ/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJE7Qs_FyA4lyo_PbH0-Sh5w_Gc0u_1gHc-4oJ2nSIWNXRu9JzytyCD9n0kWBGa-zkmg/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
@@ -471,6 +472,7 @@ function RSVPFormSection() {
         guestCount: '1',
         attendance: 'yes',
         mealPreference: 'chicken',
+        alcoholPreferences: [] as string[],
         dietaryNotes: '',
       });
       
@@ -580,10 +582,10 @@ function RSVPFormSection() {
                     </label>
                     <div className="grid grid-cols-2 gap-2">
                       {[
-                        { value: 'chicken', label: 'Курица' },
-                        { value: 'beef/pork', label: 'Говядина/Свинина' },
-                        { value: 'fish', label: 'Рыба' },
-                        { value: 'vegetarian', label: 'Вегетерианец' },
+                        { value: 'Курица', label: 'Курица' },
+                        { value: 'Говядина/свинина', label: 'Говядина/Свинина' },
+                        { value: 'Рыба', label: 'Рыба' },
+                        { value: 'Веган', label: 'Вегетерианец' },
                       ].map((meal) => (
                         <label
                           key={meal.value}
@@ -605,6 +607,70 @@ function RSVPFormSection() {
                         </label>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Alcohol Preferences - Multiple Select */}
+                  <div>
+                    <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-3 block">
+                      Алкоголь *
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        { value: 'Красное вино', label: 'Красное вино' },
+                        { value: 'Белое вино', label: 'Белое Вино' },
+                        { value: 'Шампанское', label: 'Шампанское' },
+                        { value: 'Мартини', label: 'Мартини' },
+                        { value: 'Виски', label: 'Виски' },
+                        { value: 'Водка', label: 'Водка' },
+                        { value: 'Джин', label: 'Джин' },
+                        { value: 'Коньяк', label: 'Коньяк' },
+                        { value: 'Текила', label: 'Текила' },
+                        { value: 'Без алко', label: 'Безалкогольное' },
+                      ].map((drink) => {
+                        // Проверяем, выбран ли этот напиток (массив включает значение)
+                        const isChecked = formData.alcoholPreferences?.includes(drink.value) || false;
+                        
+                        return (
+                          <label
+                            key={drink.value}
+                            className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 cursor-pointer transition-all font-['Inter'] text-sm capitalize ${
+                              isChecked
+                                ? 'border-[#D4B8D1] bg-[#D4B8D1]/20 text-[#4A4A4A]'
+                                : 'border-[#E8D5C4] text-[#8B7355]'
+                            }`}
+                          >
+                            <input
+                              type="checkbox"  // 👈 Чекбокс вместо радио
+                              name="alcohol"
+                              value={drink.value}
+                              checked={isChecked}
+                              onChange={(e) => {
+                                const current = formData.alcoholPreferences || [];
+                                if (e.target.checked) {
+                                  // Добавляем напиток в массив
+                                  setFormData({ ...formData, alcoholPreferences: [...current, drink.value] });
+                                } else {
+                                  // Удаляем напиток из массива
+                                  setFormData({ 
+                                    ...formData, 
+                                    alcoholPreferences: current.filter((v) => v !== drink.value) 
+                                  });
+                                }
+                              }}
+                              className="sr-only"
+                            />
+                            {drink.label}
+                          </label>
+                        );
+                      })}
+                    </div>
+                    
+                    {/* Подсказка, если ничего не выбрано */}
+                    {(!formData.alcoholPreferences || formData.alcoholPreferences.length === 0) && (
+                      <p className="text-[10px] text-[#8B7355]/70 mt-1.5 text-center">
+                        Выберите один или несколько вариантов
+                      </p>
+                    )}
                   </div>
 
                   {/* Dietary Notes */}
