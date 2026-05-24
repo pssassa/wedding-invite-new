@@ -582,10 +582,10 @@ function RSVPFormSection() {
                     </label>
                     <div className="grid grid-cols-2 gap-2">
                       {[
-                        { value: 'Курица', label: 'Курица' },
-                        { value: 'Говядина/свинина', label: 'Говядина/Свинина' },
-                        { value: 'Рыба', label: 'Рыба' },
-                        { value: 'Веган', label: 'Вегетерианец' },
+                        { value: 'Chicken', label: 'Курица' },
+                        { value: 'Beef/Pork', label: 'Говядина/Свинина' },
+                        { value: 'Fish', label: 'Рыба' },
+                        { value: 'Vegan', label: 'Вегетерианец' },
                       ].map((meal) => (
                         <label
                           key={meal.value}
@@ -616,16 +616,16 @@ function RSVPFormSection() {
                     </label>
                     <div className="grid grid-cols-2 gap-2">
                       {[
-                        { value: 'Красное вино', label: 'Красное вино' },
-                        { value: 'Белое вино', label: 'Белое Вино' },
-                        { value: 'Шампанское', label: 'Шампанское' },
-                        { value: 'Мартини', label: 'Мартини' },
-                        { value: 'Виски', label: 'Виски' },
-                        { value: 'Водка', label: 'Водка' },
-                        { value: 'Джин', label: 'Джин' },
-                        { value: 'Коньяк', label: 'Коньяк' },
-                        { value: 'Текила', label: 'Текила' },
-                        { value: 'Без алко', label: 'Безалкогольное' },
+                        { value: 'Red wine', label: 'Красное вино' },
+                        { value: 'White wine', label: 'Белое Вино' },
+                        { value: 'Champange', label: 'Шампанское' },
+                        { value: 'Martini', label: 'Мартини' },
+                        { value: 'Whiskey', label: 'Виски' },
+                        { value: 'Vodka', label: 'Водка' },
+                        { value: 'Gin', label: 'Джин' },
+                        { value: 'Cognac', label: 'Коньяк' },
+                        { value: 'Tekila', label: 'Текила' },
+                        { value: 'Not alcohol', label: 'Безалкогольное' },
                       ].map((drink) => {
                         // Проверяем, выбран ли этот напиток (массив включает значение)
                         const isChecked = formData.alcoholPreferences?.includes(drink.value) || false;
