@@ -437,7 +437,6 @@ function TimelineSection() {
 function RSVPFormSection() {
   const [formData, setFormData] = useState({
     name: '',
-    guestCount: '1',
     attendance: 'yes',
     mealPreference: 'chicken',
     alcoholPreferences: [] as string[],
@@ -469,7 +468,6 @@ function RSVPFormSection() {
       setSubmitted(true);
       setFormData({
         name: '',
-        guestCount: '1',
         attendance: 'yes',
         mealPreference: 'chicken',
         alcoholPreferences: [] as string[],
