@@ -440,8 +440,8 @@ function RSVPFormSection() {
     guestCount: '1',
     attendance: 'yes',
     mealPreference: 'chicken',
-    alcoholPreferences: [] as string[],
     dietaryNotes: '',
+    alcoholPreferences: [] as string[],
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
