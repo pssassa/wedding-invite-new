@@ -906,6 +906,7 @@ function FooterSection() {
             </div>
           </div>
 
+          {/* Photo Upload Link */}
           {/* Photo Upload Link - Centered Elegant */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
