@@ -453,7 +453,7 @@ function RSVPFormSection() {
     
     try {
       // 👇 ВСТАВЬ СЮДА СВОЙ URL ИЗ GOOGLE APPS SCRIPT
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbydhZ7tSwfvBbP3cbqBXDhJKWolOg2HT3ExmkEDtbNMTnXte46L6wqWxk99l44sv1-l6g/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpcgykuni2FtN09RFFFsLWOl2UK5VSNMIY1hCg997rCujRBJu0KE3ESuU_lyw5w_O4Lw/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
