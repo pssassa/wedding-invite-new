@@ -928,7 +928,7 @@ function FooterSection() {
             </p>
             
             <a
-              href="https://disk.yandex.ru/d/ТВОЯ_ССЫЛКА"
+              href="https://drive.google.com/drive/folders/1t5G3IJCDgJ6H0CyddmCsVx_DX0094att?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all hover:shadow-lg hover:scale-105"
