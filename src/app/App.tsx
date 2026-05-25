@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import {
   Heart, MapPin, Calendar, Clock, Mail, Phone, Gift, Send,
-  Music, Wine, Utensils, Sparkles, ExternalLink, MessageSquareShare
+  Music, Wine, Utensils, Sparkles, ExternalLink, MessageSquareShare, CloudUpload, Upload
 } from 'lucide-react';
 
 // ── Botanical SVG decorations ────────────────────────────────────────────────
@@ -441,6 +441,7 @@ function RSVPFormSection() {
     mealPreference: 'chicken',
     alcoholPreferences: [] as string[],
     dietaryNotes: '',
+    guestMusic: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -472,6 +473,7 @@ function RSVPFormSection() {
         mealPreference: 'chicken',
         alcoholPreferences: [] as string[],
         dietaryNotes: '',
+        guestMusic: '',
       });
       
     } catch (error) {
@@ -672,18 +674,33 @@ function RSVPFormSection() {
                   </div>
 
                   {/* Dietary Notes */}
-              <div>
-                <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-2 block">
-                  Диетические ограничения или примечания
-                </label>
-                <textarea
-                  value={formData.dietaryNotes}
-                  onChange={(e) => setFormData({ ...formData, dietaryNotes: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-[#E8D5C4] focus:border-[#C8D8C4] focus:outline-none transition-colors font-['Inter'] resize-none bg-[#fdfaf8]"
-                  rows={3}
-                  placeholder="Если у вас есть аллергии, особые диетические предпочтения или вы просто хотите нам что то сообщить!"
-                />
-              </div>
+                  <div>
+                    <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-2 block">
+                      Диетические ограничения или примечания
+                    </label>
+                    <textarea
+                      value={formData.dietaryNotes}
+                      onChange={(e) => setFormData({ ...formData, dietaryNotes: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-[#E8D5C4] focus:border-[#C8D8C4] focus:outline-none transition-colors font-['Inter'] resize-none bg-[#fdfaf8]"
+                      rows={3}
+                      placeholder="Если у вас есть аллергии, особые диетические предпочтения или вы просто хотите нам что то сообщить!"
+                    />
+                  </div>
+
+                  {/* Guest Music */}
+                  <div>
+                    <label className="font-['Inter'] text-sm font-medium text-[#4A4A4A] mb-2 block">
+                      Какую музыку хотели бы услышать?
+                    </label>
+                    <textarea
+                      value={formData.guestMusic}
+                      onChange={(e) => setFormData({ ...formData, guestMusic: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-[#E8D5C4] focus:border-[#C8D8C4] focus:outline-none transition-colors font-['Inter'] resize-none bg-[#fdfaf8]"
+                      rows={3}
+                      placeholder="Напишите названия песен или исполнителей, которые хоетли бы услышать"
+                    />
+                  </div>
+
                 </>
               )}
 
@@ -822,73 +839,108 @@ function FooterSection() {
 
           <HeartDivider color="#D4B8D1" />
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 mb-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 mb-10">
           
-          {/* 📧 Email блок */}
-          <div className="flex flex-col items-center sm:items-start gap-1">
-            <div className="flex items-center gap-2 font-['Inter'] text-[#6B5D52] mb-1">
-              <Mail className="w-4 h-4" />
-              <span className="font-medium">Email:</span>
+            {/* 📧 Email блок */}
+            <div className="flex flex-col items-center sm:items-start gap-1">
+              <div className="flex items-center gap-2 font-['Inter'] text-[#6B5D52] mb-1">
+                <Mail className="w-4 h-4" />
+                <span className="font-medium">Email:</span>
+              </div>
+              <a
+                href="mailto:psassa2013@@yandex.ru"
+                className="text-[#6B5D52] hover:text-[#C8D8C4] transition-colors text-sm"
+              >
+                psassa2013@@yandex.ru — Павел
+              </a>
+              <a
+                href="mailto:lina.telnova.01@mail.ru"
+                className="text-[#6B5D52] hover:text-[#C8D8C4] transition-colors text-sm"
+              >
+                lina.telnova.01@mail.ru — Алина
+              </a>
             </div>
-            <a
-              href="mailto:psassa2013@@yandex.ru"
-              className="text-[#6B5D52] hover:text-[#C8D8C4] transition-colors text-sm"
-            >
-              psassa2013@@yandex.ru — Павел
-            </a>
-            <a
-              href="mailto:lina.telnova.01@mail.ru"
-              className="text-[#6B5D52] hover:text-[#C8D8C4] transition-colors text-sm"
-            >
-              lina.telnova.01@mail.ru — Алина
-            </a>
+
+            {/* 📞 Телефон блок */}
+            <div className="flex flex-col items-center sm:items-start gap-1">
+              <div className="flex items-center gap-2 font-['Inter'] text-[#6B5D52] mb-1">
+                <Phone className="w-4 h-4" />
+                <span className="font-medium">Телефон:</span>
+              </div>
+              <a
+                href="tel:+79526166916"
+                className="text-[#6B5D52] hover:text-[#D4B8D1] transition-colors text-sm"
+              >
+                +7 (952) 616-69-16 — Павел
+              </a>
+              <a
+                href="tel:+79501086025"
+                className="text-[#6B5D52] hover:text-[#D4B8D1] transition-colors text-sm"
+              >
+                +7 (950) 108-60-25 — Алина
+              </a>
+            </div>
+
+            {/* ✈️ Telegram блок */}
+            <div className="flex flex-col items-center sm:items-start gap-1">
+              <div className="flex items-center gap-2 font-['Inter'] text-[#6B5D52] mb-1">
+                <Send className="w-4 h-4" />
+                <span className="font-medium">Telegram:</span>
+              </div>
+              <a
+                href="https://t.me/psasssa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B5D52] hover:text-[#E6C2C2] transition-colors text-sm"
+              >
+                @psasssa — Павел
+              </a>
+              <a
+                href="https://t.me/lina_telnova"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B5D52] hover:text-[#E6C2C2] transition-colors text-sm"
+              >
+                @lina_telnova — Алина
+              </a>
+            </div>
           </div>
 
-          {/* 📞 Телефон блок */}
-          <div className="flex flex-col items-center sm:items-start gap-1">
-            <div className="flex items-center gap-2 font-['Inter'] text-[#6B5D52] mb-1">
-              <Phone className="w-4 h-4" />
-              <span className="font-medium">Телефон:</span>
+          {/* Photo Upload Link */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.07)] mb-8"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" 
+                  style={{ background: '#D4B8D133' }}>
+                <CloudUpload className="w-6 h-6 text-[#D4B8D1]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-['Playfair_Display'] text-xl text-[#4A4A4A] mb-1">
+                  Ваши фото с праздника 📸
+                </h3>
+                <p className="font-['Inter'] text-[#6B5D52] text-sm mb-3">
+                  Делитесь моментами! Загружайте фото и видео в наше общее облако — соберём красивую память вместе.
+                </p>
+                <a
+                  href="https://disk.yandex.ru/d/ТВОЯ_ССЫЛКА"  // 👇 Замени на свою ссылку
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium text-sm transition-all hover:shadow-md"
+                  style={{ background: 'linear-gradient(135deg, #C8D8C4 0%, #D4B8D1 100%)' }}
+                >
+                  <Upload className="w-4 h-4" />
+                  Загрузить фото
+                </a>
+                <p className="font-['Inter'] text-[10px] text-[#8B7355]/70 mt-2">
+                  Доступно для всех гостей • Без регистрации
+                </p>
+              </div>
             </div>
-            <a
-              href="tel:+79526166916"
-              className="text-[#6B5D52] hover:text-[#D4B8D1] transition-colors text-sm"
-            >
-              +7 (952) 616-69-16 — Павел
-            </a>
-            <a
-              href="tel:+79501086025"
-              className="text-[#6B5D52] hover:text-[#D4B8D1] transition-colors text-sm"
-            >
-              +7 (950) 108-60-25 — Алина
-            </a>
-          </div>
-
-          {/* ✈️ Telegram блок */}
-          <div className="flex flex-col items-center sm:items-start gap-1">
-            <div className="flex items-center gap-2 font-['Inter'] text-[#6B5D52] mb-1">
-              <Send className="w-4 h-4" />
-              <span className="font-medium">Telegram:</span>
-            </div>
-            <a
-              href="https://t.me/psasssa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6B5D52] hover:text-[#E6C2C2] transition-colors text-sm"
-            >
-              @psasssa — Павел
-            </a>
-            <a
-              href="https://t.me/lina_telnova"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6B5D52] hover:text-[#E6C2C2] transition-colors text-sm"
-            >
-              @lina_telnova — Алина
-            </a>
-          </div>
-
-      </div>
+          </motion.div>
 
           <div className="bg-white rounded-2xl p-6 mb-10 shadow-[0_4px_20px_rgba(0,0,0,0.07)] max-w-lg mx-auto">
             <div className="flex items-center justify-center gap-2 mb-2">
