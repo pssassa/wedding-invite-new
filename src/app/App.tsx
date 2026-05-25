@@ -454,7 +454,7 @@ function RSVPFormSection() {
     
     try {
       // 👇 ВСТАВЬ СЮДА СВОЙ URL ИЗ GOOGLE APPS SCRIPT
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpcgykuni2FtN09RFFFsLWOl2UK5VSNMIY1hCg997rCujRBJu0KE3ESuU_lyw5w_O4Lw/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzLS2GS2GOJRb-YUFS3FRGWTd-ASg2bPWa8OY9WtU81dc3d5T53ZKlhMYBUENVHP5SFYA/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
@@ -926,7 +926,7 @@ function FooterSection() {
                   Делитесь моментами! Загружайте фото и видео в наше общее облако — соберём красивую память вместе.
                 </p>
                 <a
-                  href="https://disk.yandex.ru/d/ТВОЯ_ССЫЛКА"  // 👇 Замени на свою ссылку
+                  href="https://drive.google.com/drive/folders/1t5G3IJCDgJ6H0CyddmCsVx_DX0094att?usp=sharing"  // 👇 Замени на свою ссылку
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium text-sm transition-all hover:shadow-md"
