@@ -697,7 +697,7 @@ function RSVPFormSection() {
                       onChange={(e) => setFormData({ ...formData, guestMusic: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border-2 border-[#E8D5C4] focus:border-[#C8D8C4] focus:outline-none transition-colors font-['Inter'] resize-none bg-[#fdfaf8]"
                       rows={3}
-                      placeholder="Напишите названия песен или исполнителей, которые хоетли бы услышать"
+                      placeholder="Напишите названия песен или исполнителей, которые хотели бы услышать"
                     />
                   </div>
 
