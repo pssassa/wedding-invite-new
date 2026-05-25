@@ -906,40 +906,40 @@ function FooterSection() {
             </div>
           </div>
 
-          {/* Photo Upload Link */}
+          {/* Photo Upload Link - Centered Elegant */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.07)] mb-8"
+            className="text-center py-10 px-6 bg-gradient-to-br from-[#F5F0EB] to-white rounded-2xl border-2 border-[#E8D5C4]/50 mb-8"
           >
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" 
-                  style={{ background: '#D4B8D133' }}>
-                <CloudUpload className="w-6 h-6 text-[#D4B8D1]" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-['Playfair_Display'] text-xl text-[#4A4A4A] mb-1">
-                  Ваши фото с праздника
-                </h3>
-                <p className="font-['Inter'] text-[#6B5D52] text-sm mb-3">
-                  Делитесь моментами! Загружайте фото и видео в наше общее облако — соберём красивую память вместе.
-                </p>
-                <a
-                  href="https://drive.google.com/drive/folders/1t5G3IJCDgJ6H0CyddmCsVx_DX0094att?usp=sharing"  // 👇 Замени на свою ссылку
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium text-sm transition-all hover:shadow-md"
-                  style={{ background: 'linear-gradient(135deg, #C8D8C4 0%, #D4B8D1 100%)' }}
-                >
-                  <Upload className="w-4 h-4" />
-                  Загрузить фото
-                </a>
-                <p className="font-['Inter'] text-[10px] text-[#8B7355]/70 mt-2">
-                  Доступно для всех гостей • Без регистрации
-                </p>
-              </div>
+            <div className="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center" 
+                style={{ background: 'linear-gradient(135deg, #C8D8C4 0%, #D4B8D1 100%)' }}>
+              <CloudUpload className="w-7 h-7 text-white" />
             </div>
+            
+            <h3 className="font-['Playfair_Display'] text-2xl text-[#4A4A4A] mb-2">
+              Ваши фото с праздника
+            </h3>
+            
+            <p className="font-['Inter'] text-[#6B5D52] text-sm mb-5 max-w-md mx-auto leading-relaxed">
+              Делитесь моментами! Загружайте фото и видео в наше облако — соберём память вместе 💫
+            </p>
+            
+            <a
+              href="https://disk.yandex.ru/d/ТВОЯ_ССЫЛКА"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all hover:shadow-lg hover:scale-105"
+              style={{ background: 'linear-gradient(135deg, #C8D8C4 0%, #D4B8D1 100%)' }}
+            >
+              <Upload className="w-4 h-4" />
+              Загрузить фото
+            </a>
+            
+            <p className="font-['Inter'] text-[11px] text-[#8B7355]/60 mt-3">
+              Доступно для всех гостей • Без регистрации
+            </p>
           </motion.div>
 
           <div className="bg-white rounded-2xl p-6 mb-10 shadow-[0_4px_20px_rgba(0,0,0,0.07)] max-w-lg mx-auto">
