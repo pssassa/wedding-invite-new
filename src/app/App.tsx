@@ -917,11 +917,11 @@ function FooterSection() {
               <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" 
                   style={{ background: '#D4B8D133' }}>
                 <CloudUpload className="w-6 h-6 text-[#D4B8D1]" />
+                <h3 className="font-['Playfair_Display'] text-xl text-[#4A4A4A] mb-1">
+                  Ваши фото с праздника
+                </h3>
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-['Playfair_Display'] text-xl text-[#4A4A4A] mb-1">
-                  Ваши фото с праздника 📸
-                </h3>
                 <p className="font-['Inter'] text-[#6B5D52] text-sm mb-3">
                   Делитесь моментами! Загружайте фото и видео в наше общее облако — соберём красивую память вместе.
                 </p>
